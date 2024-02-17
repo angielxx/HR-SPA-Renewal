@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         cardStatusList = DataWithIdx.map((item) => {
           return {
             idx: item.idx,
-            status: false,
+            status: "notFliped",
           };
         });
         localStorage.setItem("cardStatus", JSON.stringify(cardStatusList));
@@ -52,13 +52,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       card.appendChild(front);
       card.appendChild(back);
 
-      cardStatusData[idx].status ? card.classList.add("is-flipped") : null;
+      cardStatusData[idx].status === "fliped"
+        ? card.classList.add("is-flipped")
+        : null;
 
       card.addEventListener("click", function () {
         card.classList.toggle("is-flipped");
         const flipedIndex = card.getAttribute("idx");
-        cardStatusData[flipedIndex - 1].status =
-          card.classList.contains("is-flipped") || false;
+        cardStatusData[flipedIndex - 1].status = card.classList.contains(
+          "is-flipped"
+        )
+          ? "fliped"
+          : "notFlipped";
         localStorage.setItem("cardStatus", JSON.stringify(cardStatusData));
       });
 
