@@ -9,7 +9,7 @@ header {
   height: 60px;
   align-items: center;
   font-size: 1.5em;
-  font-family: "Bebas Neue", cursive;
+  font-family: 'Bebas Neue', cursive;
   background: #29323c;
   background: linear-gradient(
     198deg,
@@ -41,21 +41,27 @@ header {
 
 /* 인사 정보 페이지 */
 #cards_container {
-  width: 80%;
+  max-width: 880px;
+  /* min-width: 100%; */
   margin: 10px auto;
   padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
 }
 
 .card {
   margin: 20px 10px;
-  width: 100px;
-  height: 100px;
+  min-width: 200px;
+  min-height: 260px;
   border-radius: 25px;
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 1s;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .card.is-flipped {
@@ -71,14 +77,22 @@ header {
   font-size: 20px;
   color: black;
   backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .card_plane--front {
-  background: #f2f2f2;
+  background: #0d0d0d;
 }
 
 .card_plane--back {
+  background: #f2f2f2;
   transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  color: #3098f2;
 }
 
 /* 인사 정보 등록 페이지 */

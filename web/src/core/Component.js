@@ -11,21 +11,23 @@ export default class Component {
     this.render();
   }
 
+  // setup - setEvent - template - mounted 순으로 실행
+
   setup() {} //컴포넌트 state 설정
+
+  setEvent() {} //컴포넌트에서 필요한 이벤트 설정
 
   mounted() {} //컴포넌트가 마운트 되었을 때
 
   template() {
     //UI 구성
-    return "";
+    return '';
   }
 
   render() {
     this.$target.innerHTML = this.template(); //UI 렌더링
     this.mounted();
   }
-
-  setEvent() {} //컴포넌트에서 필요한 이벤트 설정
 
   setState(newState) {
     //상태 변경 후 렌더링

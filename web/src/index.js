@@ -1,24 +1,24 @@
-import HomePage from "./page/HomePage.js";
-import SignupPage from "./page/SignupPage.js";
-import Header from "./components/Header.js";
+import HomePage from './page/HomePage.js';
+import SignupPage from './page/SignupPage.js';
+import Header from './components/Header.js';
 
 const routes = [
   {
-    path: "/web/",
+    path: '/web/',
     view: HomePage,
   },
   {
-    path: "/web/signup",
+    path: '/web/signup',
     view: SignupPage,
   },
 ];
 
 const App = async () => {
-  new Header(document.querySelector(".app"));
+  new Header(document.querySelector('.app'));
 
-  const main = document.createElement("main");
-  main.id = "page_content";
-  document.querySelector(".app").appendChild(main);
+  const main = document.createElement('main');
+  main.id = 'page_content';
+  document.querySelector('.app').appendChild(main);
 
   const pageMatches = routes.map((route) => {
     return {
@@ -28,8 +28,8 @@ const App = async () => {
   });
 
   let match = pageMatches.find((pageMatch) => pageMatch.isMatch);
-  console.log(match);
-  new match.route.view(document.querySelector("#page_content"));
+
+  new match.route.view(document.querySelector('#page_content'));
 };
 
 export const navigate = (url) => {
